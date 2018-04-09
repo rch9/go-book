@@ -12,5 +12,6 @@
 #*.out
 
 #!**/*.go
-*
-!**.*
+#*
+#!**.*
+#!lessons/chapter*/exercises/*.*

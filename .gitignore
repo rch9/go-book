@@ -15,3 +15,4 @@
 #*
 #!**.*
 #!lessons/chapter*/exercises/*.*
+*.DS_Store

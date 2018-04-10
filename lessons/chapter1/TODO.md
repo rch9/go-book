@@ -1,1 +1,2 @@
-Split, Join 
+Split, Join
+узнать больше про RGBA

@@ -15,6 +15,7 @@ func main() {
     for _, url := range os.Args[1:] {
         go fetch(url, ch)
     }
+    //почему это работает так (про копирующийся ch в fetch и цикл)
     for range os.Args[1:] {
         fmt.Println(<-ch)
     }
@@ -22,6 +23,7 @@ func main() {
 }
 
 func fetch(url string, ch chan<- string) {
+    fmt.Println(&ch)
     start := time.Now()
     resp, err := http.Get(url)
     if err != nil {
@@ -29,6 +31,7 @@ func fetch(url string, ch chan<- string) {
         return
     }
 
+    // что делает Discard (считать и проигнорировать?)
     nbytes, err := io.Copy(ioutil.Discard, resp.Body)
     resp.Body.Close()
     if err != nil {
@@ -36,5 +39,6 @@ func fetch(url string, ch chan<- string) {
         return
     }
     secs := time.Since(start).Seconds()
+    // что делает %7d
     ch <- fmt.Sprintf("%.2fs %7d %s", secs, nbytes, url)
 }

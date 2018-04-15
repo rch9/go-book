@@ -34,10 +34,7 @@ var convun = flag.String("cu", "all", "convertion units")
 
 func main() {
 	flag.Parse()
-
-
     fmt.Println(handleInputDir(inpdir))
-
 }
 
 func parse(args []string) (res string) {

@@ -1,8 +1,8 @@
 package main
 
 import (
-    "fmt"
     "./popcount"
+    "fmt"
 )
 
 // var a = b + c
@@ -20,5 +20,12 @@ import (
 // }
 
 func main() {
-    fmt.Println(popcount.Pc)
+    fmt.Printf("\nres: %d\n", popcount.PopCount(1000))
+    // var s byte = 500
+    // fmt.Println(byte(s))
+    // fmt.Println(popcount.Pc)
+    // var s byte = 255
+    // fmt.Printf("\n%b\n", s<<0)
+    // fmt.Printf("\n%b\n", s<<1)
+    // fmt.Printf("\n%b\n", s>>1)
 }

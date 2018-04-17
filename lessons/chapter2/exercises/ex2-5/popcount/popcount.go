@@ -1,11 +1,8 @@
 package popcount
 
 func PopCount(x uint64) (res int) {
-    for x != 0 {
-        if x&1 == 1 {
-            res++
-        }
-        x>>=1
+    for ;x != x&(x-1); x = x&(x-1) {
+        res++
     }
     return res
 }

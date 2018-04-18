@@ -1,7 +1,7 @@
 package main
 
 import (
-    "./popcount"
+    "go.book/lessons/chapter2/exercises/ex2-3/popcount"
     "fmt"
 )
 

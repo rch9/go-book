@@ -46,6 +46,6 @@ func corner(i, j int) (float64, float64) {
 }
 
 func f(x, у float64) float64 {
-	r := math.Hypot(x, у) // Расстояние от (0,0)
+	r := math.Hypot(x, у) // r = sqrt(x^2 + y^2)
     return math.Sin(r) / r
 }

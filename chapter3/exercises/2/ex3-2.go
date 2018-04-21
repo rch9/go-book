@@ -6,12 +6,12 @@ import (
 )
 
 const (
-	width, height = 600, 320 // размер изображения
-	cells         = 30 // детализация сетки (кол-во ячеек)
+	width, height = 600, 620 // размер изображения
+	cells         = 100 // детализация сетки (кол-во ячеек)
 	xyrange       = 30.0 // размер осей
 	xyscale       = width / 2 / xyrange // масштаб изображения по xy
 	zscale        = height * 0.4 // масштаб по z
-	angle         = 45 * math.Pi / 180 //углы осей x, y. Что значит?
+	angle         = 30 * math.Pi / 180 //углы осей x, y. Что значит?
 )
 
 var sin30, cos30 = math.Sin(angle), math.Cos(angle)
@@ -45,12 +45,10 @@ func corner(i, j int) (float64, float64) {
 	return sx, sy
 }
 
-func f(x, у float64) float64 {
-	r := math.Hypot(x, у) // Расстояние от (0,0)
+func f(x, y  float64) float64 {
+    //холм
+    return -(x*x + y*y) / 1000
 
-    if r < 10e-3 {
-        r = 10e-3
-    }
-
-    return math.Sin(r) / r
+    // седло
+    // return (-x*x + y*y) / 1000
 }

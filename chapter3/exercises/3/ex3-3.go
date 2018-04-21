@@ -12,7 +12,7 @@ const (
 	xyrange       = 30.0 // размер осей
 	xyscale       = width / 2 / xyrange // масштаб изображения по xy
 	zscale        = height * 0.4 // масштаб по z
-	angle         = 30 * math.Pi / 180 //углы осей x, y. Что значит?
+	angle         = 0 * math.Pi / 180 //углы осей x, y. Что значит?
 )
 
 var sin30, cos30 = math.Sin(angle), math.Cos(angle)

@@ -7,11 +7,11 @@ import (
 
 const (
 	width, height = 600, 320 // размер изображения
-	cells         = 100 // детализация
+	cells         = 100 // детализация сетки (кол-во ячеек)
 	xyrange       = 30.0 // размер осей
 	xyscale       = width / 2 / xyrange // масштаб изображения по xy
 	zscale        = height * 0.4 // масштаб по z
-	angle         = 65 * math.Pi / 180 //6 вращение по оси Х мб (вдоль срочек)
+	angle         = 30 * math.Pi / 180 //углы осей x, y. Что значит?
 )
 
 var sin30, cos30 = math.Sin(angle), math.Cos(angle)

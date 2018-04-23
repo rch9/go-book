@@ -20,6 +20,11 @@ func main() {
         for px := 0; px < width; px++ {
             x := float64(px) / width *(xmax - xmin) + xmin
             z := complex(x, y)
+
+            // OPTIMIZE: x^2 + y^2 > 4
+            if cmplx.Abs(z) > 2 {
+
+            }
             img.Set(px, py, mandelbrot(z))
         }
     }
@@ -34,7 +39,7 @@ func mandelbrot(z complex128) color.Color {
     for n := uint8(0); n < iterations; n++ {
         v = v*v + z
         if cmplx.Abs(v) > 2 {
-            return color.Gray{255 - contrast*n}
+            return color.RGBA{255 - contrast*n,255 - contrast*n, 255 - contrast*n, 0}
         }
     }
     return color.Black

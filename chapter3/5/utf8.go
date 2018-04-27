@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unicode/utf8"
+)
 
 func main() {
 	// fmt.Println("\u4e16")
@@ -10,9 +13,13 @@ func main() {
 	// fmt.Println(HasPrefix("string", "st"))
 	// fmt.Println(HasPrefix("string", "ing"))
 
-	// s := "hello world,\u4141\u4122"
-	// fmt.Println(len(s))                    // 3
-	// fmt.Println(utf8.RuneCountInString(s)) // 1
+	s := "hello\u4141\u4122"
+	fmt.Println(len(s))                    // 11
+	fmt.Println(utf8.RuneCountInString(s)) // 7
+	s = "hello"
+	fmt.Println(len(s))                    // 5
+	fmt.Println(utf8.RuneCountInString(s)) // 5
+
 	//
 	// for i := 0; i < len(s); {
 	// 	r, size := utf8.DecodeRuneInString(s[i:])
@@ -24,12 +31,12 @@ func main() {
 	// 	fmt.Printf("%d\t%q\t%d\n", i, r, r)
 	// }
 
-	s := "hello world"
-	fmt.Printf("% x\n", s)
-	r := []rune(s)
-	fmt.Printf("%x\n", r)
-
-	fmt.Println(string(1234567))
+	// s := "hello world"
+	// fmt.Printf("% x\n", s)
+	// r := []rune(s)
+	// fmt.Printf("%x\n", r)
+	//
+	// fmt.Println(string(1234567))
 }
 
 func HasPrefix(s, prefix string) bool {

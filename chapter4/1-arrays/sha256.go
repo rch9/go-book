@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	c1 := sha256.Sum256([]byte("X"))
+	c1 := sha256.Sum256([]byte("xdsamda"))
 	c2 := sha256.Sum256([]byte("X"))
 	fmt.Printf("%x\n%x\n%t\n%T\n", c1, c2, c1 == c2, c1)
 }

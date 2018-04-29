@@ -32,7 +32,6 @@ func makeDataToSha(strs []string, sep string) (res string) {
 }
 
 func sha(arg int, data []byte) (res []byte) {
-
 	switch arg {
 	case SHA256:
 		arr := sha256.Sum256(data)

@@ -7,13 +7,14 @@
 package main
 
 import (
-	"./currconv"
-	"./tempconv"
+	"bufio"
 	"flag"
 	"fmt"
 	"os"
 	"strconv"
-	"bufio"
+
+	"./currconv"
+	"./tempconv"
 )
 
 // input direction
@@ -26,7 +27,7 @@ const (
 const (
 	curr = "curr"
 	temp = "temp"
-    all = "all"
+	all  = "all"
 )
 
 var inpdir = flag.String("i", "std", "input direction")
@@ -34,7 +35,7 @@ var convun = flag.String("cu", "all", "convertion units")
 
 func main() {
 	flag.Parse()
-    fmt.Println(handleInputDir(inpdir))
+	fmt.Println(handleInputDir(inpdir))
 }
 
 func parse(args []string) (res string) {
@@ -50,16 +51,16 @@ func parse(args []string) (res string) {
 }
 
 func handleInputDir(inp *string) (res string) {
-    switch *inp {
-    case cmd:
+	switch *inp {
+	case cmd:
 		res = parse(flag.Args())
-    case std:
+	case std:
 		res = parse(scanFromStd())
-    default:
-        fmt.Fprint(os.Stderr, "bad -i\n")
-        os.Exit(1)
-    }
-    return res
+	default:
+		fmt.Fprint(os.Stderr, "bad -i\n")
+		os.Exit(1)
+	}
+	return res
 }
 
 func scanFromStd() (res []string) {
@@ -78,11 +79,11 @@ func convert(convType *string, val float64) (res string) {
 		res = wrapTemp(val)
 	case all:
 		res = fmt.Sprintf("%s,\n%s\n", wrapCurr(val), wrapTemp(val))
-    default:
-        fmt.Fprint(os.Stderr, "bad -cu\b")
-        os.Exit(1)
+	default:
+		fmt.Fprint(os.Stderr, "bad -cu\b")
+		os.Exit(1)
 	}
-    return res
+	return res
 }
 
 func wrapCurr(val float64) string {

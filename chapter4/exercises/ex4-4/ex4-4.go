@@ -4,15 +4,8 @@ import "fmt"
 
 func main() {
 	// Rotate s left by two positions.
-	s := []int{0, 1, 2, 3, 4}
-
-	reverse(s[:2])
-	reverse(s[2:])
-	reverse(s)
-	fmt.Println(s)
-
 	s2 := []int{0, 1, 2, 3, 4}
-	s2 = rotate(s2, 2)
+	s2 = rotate(s2, 3)
 	fmt.Println(s2)
 }
 
@@ -25,7 +18,7 @@ func reverse(s []int) {
 func rotate(s []int, r int) (s2 []int) {
 	s2 = make([]int, len(s))
 	for i := 0; i < len(s); i++ {
-		s2[(i+r+1)%(len(s))] = s[i]
+		s2[i] = s[(i+r)%(len(s))]
 	}
 	return s2
 }

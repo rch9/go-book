@@ -22,6 +22,12 @@ func main() {
 	// make([]T, len)
 	// make([]T, cap, len)
 	// make([]T, cap)[:len]
+
+	// Rotate s left by two positions.
+	reverse(s[:2])
+	reverse(s[2:])
+	reverse(s)
+	fmt.Println(s) // "[2 3 4 5 0 1]"
 }
 
 func reverse(s []int) {
